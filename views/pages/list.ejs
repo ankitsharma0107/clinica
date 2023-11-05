@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica | Vendor List</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+    <script src="/plugins/jquery/jquery.slim.min.js"></script>
+    <script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/list.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar',{para1:'Logout', style1:'fas fa-lock',route1:'/logout',route2: '/cart', para2:'Cart', style2:'fas fa-shopping-cart'}) %>
+
+    <main>
+      <div class="container">
+        <h1 class="mt-5 text-light">Medicine List</h1>
+        <!-- Search Bar -->
+        <nav class="navbar navbar-dark bg-dark justify-content-end rounded">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+      </div>
+      <div class="container d-flex mt-50 mb-50">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="p-0 m-0">
+              <% drug_data.forEach(function(data) { %>
+              <li>
+                <div class="card card-body mb-4">
+                  <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                    <div class="mr-2 mb-3 mb-lg-0">
+                      <img
+                        src="https://i.guim.co.uk/img/media/20491572b80293361199ca2fc95e49dfd85e1f42/0_236_5157_3094/master/5157.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=fc5fad5b6c2b545b7143b9787d0c90b1"
+                        width="150"
+                        height="150"
+                        alt=""
+                      />
+                    </div>
+                    <div class="media-body mx-4">
+                      <h5 class="media-title font-weight-semibold"> <%= data.id %> </h5>
+                      <!-- <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
+                    <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Phones</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Mobiles</a></li>
+                  </ul> -->
+                      <p class=""> <%= data.description %> </p>
+                      <!-- <ul class="list-inline list-inline-dotted mb-0">
+                    <li class="list-inline-item">All items from <a href="#" data-abc="true">Mobile point</a></li>
+                    <li class="list-inline-item">Add to <a href="#" data-abc="true">wishlist</a></li>
+                  </ul> -->
+                    </div>
+                    <div class="mx-3 mt-4 ml-lg-3 text-center">
+                      <h3 class="mb-0 font-weight-semibold"><%= data.price %>/-</h3>
+                      <!-- <div>
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <div class="text-muted">1985 reviews</div> -->
+                      <a href="/<%=data.id%>/details" type="button" class="btn mt-4 text-white"> Details </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% }); %>
+            </ul>
+            <!-- card end -->
+            <!-- <div class="card card-body mt-3">
+            <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+              <div class="mr-2 mb-3 mb-lg-0">
+                <img src="https://i.imgur.com/Aj0L4Wa.jpg" width="150" height="150" alt="" />
+              </div>
+              <div class="media-body">
+                <h6 class="media-title font-weight-semibold">
+                  <a href="#" data-abc="true">Apple iPhone XS Max (Gold, 64 GB)</a>
+                </h6>
+                <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Phones</a></li>
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Mobiles</a></li>
+                </ul>
+                <p class="mb-3">256 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 15MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display </p>
+                <ul class="list-inline list-inline-dotted mb-0">
+                  <li class="list-inline-item">All items from <a href="#" data-abc="true">Mobile junction</a></li>
+                  <li class="list-inline-item">Add to <a href="#" data-abc="true">wishlist</a></li>
+                </ul>
+              </div>
+              <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                <h3 class="mb-0 font-weight-semibold">$612.99</h3>
+                <div> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                <div class="text-muted">2349 reviews</div>
+                <button type="button" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="card card-body mt-3">
+            <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+              <div class="mr-2 mb-3 mb-lg-0">
+                <img src="https://i.imgur.com/5Aqgz7o.jpg" width="150" height="150" alt="" />
+              </div>
+              <div class="media-body">
+                <h6 class="media-title font-weight-semibold">
+                  <a href="#" data-abc="true">Apple iPhone XR (Red, 128 GB)</a>
+                </h6>
+                <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Phones</a></li>
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Mobiles</a></li>
+                </ul>
+                <p class="mb-3">128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 7MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display </p>
+                <ul class="list-inline list-inline-dotted mb-0">
+                  <li class="list-inline-item">All items from <a href="#" data-abc="true">Mobile point</a></li>
+                  <li class="list-inline-item">Add to <a href="#" data-abc="true">wishlist</a></li>
+                </ul>
+              </div>
+              <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                <h3 class="mb-0 font-weight-semibold">$459.99</h3>
+                <div>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <div class="text-muted">1985 reviews</div>
+                <button type="button" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="card card-body mt-3">
+            <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+              <div class="mr-2 mb-3 mb-lg-0">
+                <img src="https://i.imgur.com/Aj0L4Wa.jpg" width="150" height="150" alt="" />
+              </div>
+              <div class="media-body">
+                <h6 class="media-title font-weight-semibold">
+                  <a href="#" data-abc="true">Apple iPhone XS Max (Gold, 64 GB)</a>
+                </h6>
+                <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Phones</a></li>
+                  <li class="list-inline-item"><a href="#" class="text-muted" data-abc="true">Mobiles</a></li>
+                </ul>
+                <p class="mb-3">256 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 15MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display </p>
+                <ul class="list-inline list-inline-dotted mb-0">
+                  <li class="list-inline-item">All items from <a href="#" data-abc="true">Mobile junction</a></li>
+                  <li class="list-inline-item">Add to <a href="#" data-abc="true">wishlist</a></li>
+                </ul>
+              </div>
+              <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                <h3 class="mb-0 font-weight-semibold">$612.99</h3>
+                <div> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                <div class="text-muted">2349 reviews</div>
+                <button type="button" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add to cart</button>
+              </div>
+            </div>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

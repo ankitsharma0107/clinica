@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica | Stocks</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+    <script src="/plugins/jquery/jquery.slim.min.js"></script>
+    <script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/csslogout.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <%- include('../partials/navbar',{para1:'Logout', style1:'fas fa-lock',route1:'/logout',route2: '/cart', para2:'Cart', style2:'fas fa-shopping-cart'}) %>
+
+    <div class="container">
+      <h1 class="mt-5">Inventory</h1>
+
+      <div class="jumbotron jumbotron-fluid rounded">
+        <div class="container">
+          <form id="stock_entry">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Medicine Name</span>
+              </div>
+              <input type="text" name="medicine_name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
+            </div>
+            <div class="input-group my-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Medicine Description</span>
+              </div>
+              <textarea class="form-control" name="medicine_description" aria-label="With textarea" required></textarea>
+            </div>
+            <div class="input-group my-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Quantity" (in packs)</span>
+              </div>
+              <!-- <label for="inputPassword3" class="col-sm-2 col-form-label"></label> -->
+              <div class="col-sm-10">
+                <input type="number" name="medicine_quantity" class="form-control" id="inputPassword3" required />
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Price (Rs)</span>
+              </div>
+              <input type="text" name="medicine_price" class="form-control" aria-label="Amount (to the nearest dollar)" required />
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+            <!-- <fieldset class="form-group row">
+            <legend class="col-form-label col-sm-2 float-sm-left pt-0">Radios</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
+                <label class="form-check-label" for="gridRadios1"> First radio </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
+                <label class="form-check-label" for="gridRadios2"> Second radio </label>
+              </div>
+              <div class="form-check disabled">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gridRadios"
+                  id="gridRadios3"
+                  value="option3"
+                  disabled
+                />
+                <label class="form-check-label" for="gridRadios3"> Third disabled radio </label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck1" />
+                <label class="form-check-label" for="gridCheck1"> Example checkbox </label>
+              </div>
+            </div>
+          </div> -->
+
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("stock_entry");
+      const obj = {};
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(form);
+
+        console.log(formData.get("first_name"));
+        obj.medicine_name = formData.get("medicine_name");
+        obj.medicine_description = formData.get("medicine_description");
+        obj.medicine_quantity = formData.get("medicine_quantity");
+        obj.medicine_price = formData.get("medicine_price");
+
+        console.log(obj);
+
+        axios.post("/stocks", obj).then(function (response) {
+          console.log(response);
+        });
+      });
+    </script>
+  </body>
+</html>

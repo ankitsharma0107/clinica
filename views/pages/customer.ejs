@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica | Customer Page</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+    <script src="/plugins/jquery/jquery.slim.min.js"></script>
+    <script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/customer.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar',{para1:'Logout', style1:'fas fa-lock',route1:'/logout',route2: '/cart', para2:'Cart', style2:'fas fa-shopping-cart'}) %>
+
+    <main>
+      <div class="container">
+        <h1 class="mt-5 text-light">Medicine List</h1>
+        <!-- Search Bar -->
+        <nav class="navbar navbar-dark bg-dark justify-content-end rounded">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+      </div>
+      <div class="container d-flex mt-50 mb-50">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="p-0 m-0">
+              <% customer.forEach(function(customer) { %>
+              <li>
+                <div class="card card-body mb-4">
+                  <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                    <div class="mr-2 mb-3 mb-lg-0">
+                      <img
+                        src="https://i.guim.co.uk/img/media/20491572b80293361199ca2fc95e49dfd85e1f42/0_236_5157_3094/master/5157.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=fc5fad5b6c2b545b7143b9787d0c90b1"
+                        width="150"
+                        height="150"
+                        alt=""
+                      />
+                    </div>
+                    <div class="media-body mx-4">
+                      <h5 class="media-title font-weight-semibold"> <%= customer.id%> </h5>
+                      <p> <%= customer.description%> </p>
+                    </div>
+                    <div class="mx-3 mt-4 ml-lg-3 text-center">
+                      <h3 class="mb-3 font-weight-semibold">Branded</h3>
+                      <h4 class="mb-0 font-weight-semibold">Rs <%= customer.branded_price%>/-</h4>
+                    </div>
+                    <div class="mx-3 mt-4 ml-lg-3 text-center">
+                      <h3 class="mb-3 font-weight-semibold">Generic</h3>
+                      <h4 class="mb-0 font-weight-semibold">Rs <%= customer.generic_price%>/-</h4>
+                    </div>
+                    <div class="mx-3 mt-4 ml-lg-3 text-center">
+                      <a href="/cart" type="button" class="btn btn-warning mt-4 text-white"> Add to Cart </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <% }); %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

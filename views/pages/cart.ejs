@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clinica | Cart</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+    <script src="/plugins/jquery/jquery.slim.min.js"></script>
+    <script src="/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/cart.css" />
+  </head>
+  <body>
+    <%- include('../partials/navbar',{para1:'Login', style1:'fas fa-lock',route1:'/login',route2: '/cart', para2:'Cart', style2:'fas fa-shopping-cart'})
+    %>
+
+
+      <div class="mt-4">
+        <div class="container">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Hello!</strong> This is just a prototype for now.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <h1>Cart</h1>
+          <div class="row">
+            <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+              <!-- Shopping cart table -->
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="border-0 bg-light">
+                        <div class="p-2 px-3 text-uppercase">Medicine</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Price</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Quantity</div>
+                      </th>
+                      <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Remove</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="border-0">
+                        <div class="p-2">
+                          <img
+                            src="https://www.who.int/images/default-source/departments/access-to-medicines/medicines-tablets-capsules-close-zoom.jpg?sfvrsn=c41cbb5e_13"
+                            alt=""
+                            width="70"
+                            class="img-fluid rounded shadow-sm"
+                          />
+                          <div class="ml-3 d-inline-block align-middle">
+                            <h5 class="mb-0">
+                              <a href="#" class="text-dark d-inline-block align-middle">Paracetamol</a></h5
+                            ><span class="text-muted font-weight-normal font-italic d-block">Category: Painkillers</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="border-0 align-middle"><strong>Rs 79.00/-</strong></td>
+                      <td class="border-0 align-middle"><strong>3</strong></td>
+                      <td class="border-0 align-middle"
+                        ><a href="#" class="text-dark"><i class="fa fa-trash"></i></a
+                      ></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <div class="p-2">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrctmPcwAecxqS3dOQogaWEV65bmfZKAuS4iCHbdKlAymgteaQRelVdHxS1tYpmHW1HE&usqp=CAU"
+                            alt=""
+                            width="70"
+                            class="img-fluid rounded shadow-sm"
+                          />
+                          <div class="ml-3 d-inline-block align-middle">
+                            <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Crocin</a></h5
+                            ><span class="text-muted font-weight-normal font-italic">Category: Antibiotics</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td class="align-middle"><strong>Rs 100.00/-</strong></td>
+                      <td class="align-middle"><strong>3</strong></td>
+                      <td class="align-middle"
+                        ><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <div class="p-2">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPrctmPcwAecxqS3dOQogaWEV65bmfZKAuS4iCHbdKlAymgteaQRelVdHxS1tYpmHW1HE&usqp=CAU"
+                            alt=""
+                            width="70"
+                            class="img-fluid rounded shadow-sm"
+                          />
+                          <div class="ml-3 d-inline-block align-middle">
+                            <h5 class="mb-0">
+                              <a href="#" class="text-dark d-inline-block">Penicilin</a></h5
+                            ><span class="text-muted font-weight-normal font-italic">Category: Antibiotics</span>
+                          </div>
+                        </div> </th
+                      ><td class="align-middle"><strong>Rs 40.00/-</strong></td>
+                      <td class="align-middle"><strong>3</strong></td>
+                      <td class="align-middle"
+                        ><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- End -->
+            </div>
+          </div>
+
+          <div class="row py-5 p-4 bg-white rounded shadow-sm">
+            <!-- <div class="col-lg-6">
+              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+              <div class="p-4">
+                <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                <div class="input-group mb-4 border rounded-pill p-2">
+                  <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                  <div class="input-group-append border-0">
+                    <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Instructions for seller</div>
+              <div class="p-4">
+                <p class="font-italic mb-4">If you have some information for the seller you can leave them in the box below</p>
+                <textarea name="" cols="30" rows="2" class="form-control"></textarea>
+              </div>
+            </div> -->
+            <div class="col-lg-6">
+              <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+              <div class="p-4">
+                <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+                <ul class="list-unstyled mb-4">
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>Rs 390.00/-</strong></li>
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>Rs 10.00/-</strong></li>
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>Rs 0.00/-</strong></li>
+                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                    <h5 class="font-weight-bold">Rs 400.00/-</h5>
+                  </li>
+                </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  
+  </body>
+</html>
